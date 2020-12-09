@@ -1,5 +1,4 @@
 const fs = require("fs");
-const { get } = require("http");
 let legitPassword = 0;
 let part2Password = 0;
 const input = fs
@@ -12,9 +11,9 @@ for (const i in input) {
     getValues(input[i].split(" "));
   }
 }
-
 function getValues(val) {
   let between = val[0].split("-");
+  //Part 2 modified
   let first = between[0] - 1;
   let second = between[1] - 1;
 
@@ -40,7 +39,6 @@ function part1(first, second, checkVal, password) {
 }
 function part2(first, second, checkVal, password) {
   let passwordSplitted = password.split("");
-  console.log(first);
   if (
     (passwordSplitted[first] === checkVal) ^
     (passwordSplitted[second] === checkVal)
