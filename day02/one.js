@@ -7,32 +7,16 @@ const input = fs
   .toString()
   .replace("\r", "")
   .split("\n");
-//these one works.
-/*
-getValues(input[0].split(" "));
-getValues(input[1].split(" "));
-getValues(input[2].split(" "));
-*/
-// this doesnt
-
 for (const i in input) {
   if (i != input.length - 1) {
     getValues(input[i].split(" "));
   }
 }
 
-/*
-for (i = 0; i < input.length; i++) {
-    console.log("eka", i)
-    getValues(input[i].split(" "));
-    console.log("ite", i);
-  
-}
-*/
 function getValues(val) {
   let between = val[0].split("-");
-  let first = between[0];
-  let second = between[1];
+  let first = between[0] - 1;
+  let second = between[1] - 1;
 
   let checkVal = val[1].replace(":", "");
 
@@ -56,27 +40,11 @@ function part1(first, second, checkVal, password) {
 }
 function part2(first, second, checkVal, password) {
   let passwordSplitted = password.split("");
-  accepted = false;
+  console.log(first);
   if (
-    passwordSplitted[first] == checkVal &&
-    passwordSplitted[second] != checkVal
+    (passwordSplitted[first] === checkVal) ^
+    (passwordSplitted[second] === checkVal)
   ) {
-    accepted = true;
-  }
-  if (
-    passwordSplitted[first] != checkVal &&
-    passwordSplitted[second] == checkVal
-  ) {
-    accepted = true;
-  }
-  if (
-    passwordSplitted[first] == checkVal &&
-    passwordSplitted[second] == checkVal
-  ) {
-    accepted = false;
-  }
-
-  if (accepted == true) {
     part2Password++;
   }
 }
