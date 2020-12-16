@@ -1,0 +1,10 @@
+byr:1971
+iyr:2017 hgt:160cm
+eyr:2020 ecl:hzl
+pid:157096267
+
+hgt:183cm
+pid:368895060
+ecl:oth eyr:2020
+iyr:2013
+byr:1966
